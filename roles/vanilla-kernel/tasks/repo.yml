@@ -1,0 +1,10 @@
+- name: Enable Vanilla Kernel Repo
+  yum_repository:
+    name: kernel-vanilla-stable
+    description: Stable mainline builds.
+    baseurl: https://repos.fedorapeople.org/repos/thl/kernel-vanilla-stable/fedora-35/x86_64
+    gpgkey: https://repos.fedorapeople.org/repos/thl/RPM-GPG-KEY-knurd-kernel-vanilla
+    enabled: yes
+    priority: 1
+    gpgcheck: yes
+    state: present

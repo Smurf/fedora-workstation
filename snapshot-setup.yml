@@ -1,0 +1,5 @@
+---
+- hosts: localhost
+  roles:
+    - qgroups/500g
+    - snapshots

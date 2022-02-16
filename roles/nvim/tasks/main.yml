@@ -1,0 +1,16 @@
+- name: Install nvim
+  dnf:
+    name:
+      - nvim
+      - fzf
+    state: latest
+
+- name: Install and update jedi and jedi-language-server
+  shell: |
+    pip install jedi jedi-language-server
+    pip upgrade jedi jedi-language-server
+
+- name: Copy init.vim
+  copy:
+    src: init.vim
+    dest: ~/.config/nvim/init.vim

@@ -1,0 +1,39 @@
+- name: Detect root btrfs qgroup
+  shell: |
+    btrfs subvolume list / | grep root | cut -d' ' -f2 
+  register: root_qgroup
+
+- set_fact:
+    root_qgroup={{ root_qgroup.stdout }}
+
+
+- name: Install snapper and dnf plugin
+  dnf:
+    name: 
+      - snapper
+      - python3-dnf-plugins-extras-snapper
+    state: latest
+
+- name: Create initial snapshot
+  shell: snapper -c root create-config /
+  ignore_errors: yes
+
+- name: Copy snapper root config
+  ansible.builtin.template:
+    src: snapper/root.j2
+    dest: /etc/snapper/root
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Enable and start snapper timeline timer
+  systemd:
+    name: snapper-timeline.timer
+    enabled: yes
+    state: started
+
+- name: Enable and start snapper cleanup timer
+  systemd:
+    name: snapper-cleanup.timer
+    enabled: yes
+    state: started

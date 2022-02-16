@@ -1,0 +1,5 @@
+- name: Install kernel-vanilla repo
+  import_tasks: repo.yml
+
+- name: Install vanilla kernel itself
+  import_tasks: install.yml

@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  roles:
+    - base-packages
+    - base-services
+    - nvim
+    - grub-config
+    - gnome-config
+    - vanilla-kernel 
+    - i915-kmod-config 

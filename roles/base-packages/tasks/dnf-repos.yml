@@ -1,0 +1,36 @@
+- name: Enable Google Chrome repo
+  yum_repository:
+    name: google-chrome
+    description: Google Chrome repo
+    baseurl: https://dl.google.com/linux/chrome/rpm/stable/x86_64
+    gpgkey: https://dl.google.com/linux/linux_signing_key.pub
+    enabled: yes
+    gpgcheck: yes
+    state: present
+
+- name: Enable Vanilla Kernel Repo
+  yum_repository:
+    name: kernel-vanilla-stable
+    description: Stable mainline builds.
+    baseurl: https://repos.fedorapeople.org/repos/thl/kernel-vanilla-stable/fedora-35/x86_64
+    gpgkey: https://repos.fedorapeople.org/repos/thl/RPM-GPG-KEY-knurd-kernel-vanilla
+    enabled: yes
+    priority: 1
+    gpgcheck: yes
+    state: present
+
+
+- name: Download rpmfusion free rpm
+  get_url:
+    url: https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-rawhide.noarch.rpm
+    dest: /tmp/fusion-free.rpm
+
+- name: Download rpmfusion nonfree rpm
+  get_url:
+    url: https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-rawhide.noarch.rpm
+    dest: /tmp/fusion-nonfree.rpm
+
+- name: Install rpmfusion free/nonfree rpms
+  shell: yum reinstall /tmp/*.rpm -y
+  args:
+    executable: /bin/bash

@@ -1,0 +1,11 @@
+- name: Setup dnf repos
+  import_tasks: dnf-repos.yml
+
+- name: Install dnf packages
+  import_tasks: dnf-install.yml
+
+- name: Setup flatpak repos
+  import_tasks: flatpak-repos.yml
+
+- name: Install flatpak packages
+  import_tasks: flatpak-install.yml

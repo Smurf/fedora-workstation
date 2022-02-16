@@ -1,0 +1,2 @@
+- name: Setup grub menu options
+  import_tasks: grub-options.yml
