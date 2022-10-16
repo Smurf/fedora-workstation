@@ -1,4 +1,4 @@
-<h1>Rawhide Workstation</h1>
+# Rawhide Workstation
 
 This is the set of roles I personally use to configure my Fedora Rawhide environment.
 
@@ -28,19 +28,9 @@ To setup a workstation without snapshots run the `workstation.yml` playbook.
 ansible-playbook workstation.yml --become --ask-become-pass
 ```
 
-## Configuring Snapshots (BTRFS required)
+### DP Alt Mode and AX Wifi Fixes
 
-> **NOTE:** Currently this is configured for a 500GB (**not** GiB) drive ala Samsung Evo 850. Please edit the `qgroups` role to suit your drive.
-
-Once confident qgroups are configured properly to configure snapshots run the `snapshot-setup.yml` playbook.
-
-```
-ansible-playbook snapshot-setup.yml --become --ask-become-pass
-```
-
-### Intel 11th Gen Xe and AX Wifi Fixes
-
-This playbook contains some fixes for the 11th gen Intel laptop CPUs with Xe graphics or AX 200/210 series wifi chipsets.
+This playbook contains some fixes for DP Alt mode issues with certain dock and CPU combos and connection stability issues on the Intel AX 200/210 series wifi chipsets.
 
 #### Wifi Unstable
 
@@ -52,7 +42,7 @@ ansible-playbook workstation.yml --become --ask-become-pass --tags axwifi
 
 #### Non-TB Docks not working
 
-The Intel Xe graphics on the 11th gen laptop CPUs has issues with displayport MST making non-thunderbolt USB C docks not work. To run this fix use the `i915` tag with the `workstation.yml` playbook.
+Some docks and laptop combos have issues with displayport MST making non-thunderbolt USB C docks not work. To run this fix use the `i915` tag with the `workstation.yml` playbook.
 
 ```
 ansible-playbook workstation.yml --become --ask-become-pass --tags i915

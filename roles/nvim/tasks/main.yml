@@ -5,12 +5,11 @@
       - fzf
     state: latest
 
-- name: Install and update jedi and jedi-language-server
+- name: Pull nvim-config from github as {{ default_user }}
+  become: true
+  become_user: '{{ default_user }}'
   shell: |
-    pip install jedi jedi-language-server
-    pip upgrade jedi jedi-language-server
+    git clone https://github.com/Smurf/nvim-config.git /tmp/nvim-config
+    cd /tmp/nvim-config
+    ./setup.sh
 
-- name: Copy init.vim
-  copy:
-    src: init.vim
-    dest: ~/.config/nvim/init.vim

@@ -1,4 +1,15 @@
-- name: Enable Vanilla Kernel Repo
+- name: Enable Vanilla Kernel Repo F37
+  yum_repository:
+    name: kernel-vanilla-stable-37
+    description: Stable mainline builds.
+    baseurl: https://repos.fedorapeople.org/repos/thl/kernel-vanilla-stable/fedora-37/x86_64
+    gpgkey: https://repos.fedorapeople.org/repos/thl/RPM-GPG-KEY-knurd-kernel-vanilla
+    enabled: yes
+    priority: 1
+    gpgcheck: yes
+    state: present
+
+- name: Disable old Vanilla Kernel Repo
   yum_repository:
     name: kernel-vanilla-stable
     description: Stable mainline builds.
@@ -7,4 +18,4 @@
     enabled: yes
     priority: 1
     gpgcheck: yes
-    state: present
+    state: absent

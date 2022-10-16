@@ -1,10 +1,11 @@
 ---
 - hosts: localhost
+  vars:
+    default_user: scoles
   roles:
     - base-packages
     - base-services
     - nvim
     - grub-config
-    - gnome-config
     - vanilla-kernel 
     - i915-kmod-config 
