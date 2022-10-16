@@ -22,7 +22,9 @@ This is intended to be a batteries included workstation.
 
 ## Basic Workstation sans Snapshots
 
-To setup a workstation without snapshots run the `workstation.yml` playbook.
+First edit the `default_user` variable in `workstation.yml` to reflect the user to be configured.
+
+Once the `default_user` is set run the `workstation.yml` playbook.
 
 ```
 ansible-playbook workstation.yml --become --ask-become-pass
