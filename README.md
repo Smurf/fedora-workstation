@@ -15,6 +15,7 @@ This is intended to be a batteries included workstation.
     - Increases stability without sacrificing compabibility
 * Neovim
     - Includes sensible defaults and plugins for yaml and python.
+    - Config cloned from https://github.com/Smurf/nvim-config
 * Snapshots (if using btrfs)
     - Uses snapper and grub-btrfs to dynamically update grub boot menu with bootable snapshots
 * Development Tools
