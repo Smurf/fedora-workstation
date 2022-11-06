@@ -1,5 +1,6 @@
 - name: Setup dnf repos
   import_tasks: dnf-repos.yml
+  tags: repo-config
 
 - name: Install dnf packages
   import_tasks: dnf-install.yml

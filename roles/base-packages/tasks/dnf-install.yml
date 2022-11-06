@@ -2,10 +2,11 @@
   dnf:
     update_cache: yes
 
-- name: Remove packagekit
+- name: Remove packagekit and gnome-software
   dnf:
     name:
       - PackageKit
+      - gnome-software
     state: removed
 
 - name: Install networking utilities
@@ -15,12 +16,6 @@
       - telnet
       - openvpn
     state: latest
-
-- name: Install QOL utilities
-  dnf:
-    name:
-      - guake
-      - flameshot
 
 - name: Install Remote access utilities
   dnf:
