@@ -1,6 +1,6 @@
 # Fedora Workstation
 
-This is a set of ansible roles that will minimally configure a GUI environment with useful development tools in Fedora 38.
+This is a set of ansible roles that will minimally configure a Fedora 38 install with useful applications and developer tools.
 
 ## What's included
 
