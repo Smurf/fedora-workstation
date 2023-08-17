@@ -1,6 +1,0 @@
-- name: Install VLC and Kooha from flathub
-  community.general.flatpak:
-    name: 
-      - org.videolan.VLC
-      - io.github.seadve.Kooha
-    state: present

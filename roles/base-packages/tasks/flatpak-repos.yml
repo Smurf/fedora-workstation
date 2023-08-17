@@ -1,5 +1,0 @@
-- name: Enable flathub flatpak repo
-  community.general.flatpak_remote:
-    name: flathub
-    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
-    state: present
