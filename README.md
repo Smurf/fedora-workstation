@@ -1,6 +1,6 @@
-# Rawhide Workstation
+# Fedora Workstation
 
-This is the set of roles I personally use to configure my Fedora Rawhide environment.
+This is a set of ansible roles that will minimally configure a GUI environment with useful development tools in Fedora 38.
 
 ## What's included
 
@@ -17,6 +17,8 @@ This is intended to be a batteries included workstation.
     - Config cloned from https://github.com/Smurf/nvim-config
 * Development Tools
     - Development Tools group for access to make and other common compile tools.
+
+# Usage
 
 ## Via ansible-pull
 
