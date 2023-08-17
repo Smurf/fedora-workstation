@@ -1,7 +1,7 @@
 - name: Setup flatpak repos
   import_tasks: flatpak-repos.yml
-  when: kickstart is false
+  when: kickstart is undefined
 
 - name: Install flatpak packages
   import_tasks: flatpak-install.yml
-  when kickstart is false
+  when kickstart is undefined
