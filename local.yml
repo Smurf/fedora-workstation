@@ -1,11 +1,15 @@
 ---
 - hosts: localhost
   vars:
+    releasever: 38
+  module_defaults:
+    ansible.builtin.dnf:
+      releasever: {{ releasever }}
+  vars:
     default_user: scoles
   roles:
     - base-packages
     - base-services
     - nvim
     - grub-config
-    - vanilla-kernel 
-    - i915-kmod-config 
+    - intel-ax-wifi-fix

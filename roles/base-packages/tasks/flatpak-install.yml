@@ -3,4 +3,5 @@
     name: 
       - org.videolan.VLC
       - io.github.seadve.Kooha
+      - org.flameshot.Flameshot
     state: present

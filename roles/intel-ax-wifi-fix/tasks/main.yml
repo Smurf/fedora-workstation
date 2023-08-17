@@ -1,13 +1,3 @@
-- name: Copy i915 kmod options to /etc/modprobe.d
-  ansible.builtin.copy:
-    src: i915.conf
-    dest: /etc/modprobe.d
-    owner: root
-    group: root
-    mode: '0644'
-    backup: yes
-  tags: [never, i915]
-
 - name: Disable wifi deep sleep to avoid disconnects on wifi6
   ansible.builtin.copy:
     src: iwl.conf
@@ -23,4 +13,4 @@
   ansible.builtin.shell: dracut --force
   args:
     executable: /bin/bash
-  tags: [never, i915, axwifi]
+  tags: [never, axwifi]

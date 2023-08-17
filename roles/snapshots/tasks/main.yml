@@ -1,7 +1,0 @@
-- name: Install and configure snapper
-  import_tasks: snapper.yml
-  tags: snapshots
-
-- name: Install and configure grub-btrfs
-  import_tasks: grub-btrfs.yml
-  tags: snapshots

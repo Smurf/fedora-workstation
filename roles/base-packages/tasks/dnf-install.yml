@@ -15,17 +15,16 @@
       - nmap
       - telnet
       - openvpn
-    state: latest
+    state: present
 
-- name: Install Remote access utilities
+- name: Install virtualization utilities
   dnf:
     name:
-      - remmina
-      - remmina-plugins-rdp
-      - remmina-plugins-vnc
-    state: latest
+      - libvirt
+      - virt-manager
+    state: present
 
-- name: Install browsers
+- name: Install/Update browsers
   dnf:
     name:
       - google-chrome-stable
@@ -35,24 +34,31 @@
 - name: Install system utilites
   dnf:
     name:
-      - intel-media-driver
       - file-roller
       - flatpak
+      - rsyslog
+      - btrfsmaintenance
+    state: present
+
+- name: Install Gnome utilities
+  dnf:
+    name:
       - gnome-tweaks
       - gnome-extensions-app
       - gnome-shell-extension-appindicator
-    state: latest
+    state: present
 
 - name: Install ffmpeg
   dnf:
     name: 
       - ffmpeg
       - ffmpeg-libs
-    state: latest
+    state: present
 
 - name: Install Development TOols
   dnf:
     name: 
       - '@development-tools'
       - rpm-build
-    state: latest
+      - nodejs
+    state: present

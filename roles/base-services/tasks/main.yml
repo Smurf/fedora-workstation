@@ -3,3 +3,9 @@
     name: sshd
     enabled: yes
     state: started
+
+- name: Enable rsyslogd
+  systemd:
+    name: rsyslog
+    enabled: yes
+    state: started
