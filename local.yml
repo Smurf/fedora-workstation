@@ -5,10 +5,9 @@
   module_defaults:
     ansible.builtin.dnf:
       releasever: {{ releasever }}
-  vars:
-    default_user: scoles
   roles:
     - base-packages
+    - flatpak-packages
     - base-services
     - nvim
     - grub-config
