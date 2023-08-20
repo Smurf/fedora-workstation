@@ -1,15 +1,19 @@
 - name: Install nvim
   dnf:
     name:
-      - nvim
+      - neovim
       - fzf
     state: latest
 
-- name: Pull nvim-config from github as {{ default_user }}
-  become: true
-  become_user: '{{ default_user }}'
+- name: Make tempdir for nvim config pull and install
+  ansible.builtin.tempfile:
+    state: directory
+    suffix: nvim
+  register: nvim_tmpdir
+
+- name: Pull nvim-config from github and install
   shell: |
-    git clone https://github.com/Smurf/nvim-config.git /tmp/nvim-config
-    cd /tmp/nvim-config
-    ./setup.sh
+    git clone https://github.com/Smurf/nvim-config.git "{{ nvim_tmpdir }}"
+    cd "{{ nvim_tmpdir }}"
+    ./global-setup.sh
 
