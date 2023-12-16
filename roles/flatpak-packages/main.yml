@@ -4,4 +4,4 @@
 
 - name: Install flatpak packages
   import_tasks: flatpak-install.yml
-  when kickstart is undefined
+  when: kickstart is undefined
