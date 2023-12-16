@@ -1,0 +1,5 @@
+- name: Setup dnf repos
+  import_tasks: dnf-repos.yml
+
+- name: Install dnf packages
+  import_tasks: dnf-install.yml
