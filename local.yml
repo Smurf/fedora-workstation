@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   vars:
-    releasever: 39
+    releasever: 38
   module_defaults:
     ansible.builtin.dnf:
       releasever: "{{ releasever }}"
