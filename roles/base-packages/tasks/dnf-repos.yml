@@ -18,7 +18,12 @@
     url: https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ releasever }}.noarch.rpm
     dest: /tmp/fusion-nonfree.rpm
 
-- name: Install rpmfusion free/nonfree rpms
-  shell: yum reinstall /tmp/*.rpm -y
-  args:
-    executable: /bin/bash
+- name: Install rpmfusion free
+  ansible.builtin.dnf:
+    name: /tmp/fusion-free.rpm
+    state: present
+
+- name: Install rpmfusion nonfree
+  ansible.builtin.dnf:
+    name: /tmp/fusion-nonfree.rpm
+    state: present
