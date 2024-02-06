@@ -48,14 +48,10 @@
       - gnome-shell-extension-appindicator
     state: present
 
-- name: Install ffmpeg
-  dnf:
-    name: 
-      - ffmpeg
-      - ffmpeg-libs
-    state: present
+- name: Swap ffmpeg
+  ansible.builtin.shell: dnf swap ffmpeg-free ffmpeg -y
 
-- name: Install Development TOols
+- name: Install Development Tools
   dnf:
     name: 
       - '@development-tools'
