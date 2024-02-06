@@ -8,7 +8,7 @@
     gpgcheck: yes
     state: present
 
- name: Download rpmfusion free rpm
+- name: Download rpmfusion free rpm
   get_url:
     url: https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ releasever }}.noarch.rpm
     dest: /tmp/fusion-free.rpm
