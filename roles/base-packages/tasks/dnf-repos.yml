@@ -8,12 +8,16 @@
     gpgcheck: yes
     state: present
 
-- name: Install rpmfusion free
-  ansible.builtin.dnf:
-    name: https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ releasever }}.noarch.rpm
-    state: present
+ name: Download rpmfusion free rpm
+  get_url:
+    url: https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ releasever }}.noarch.rpm
+    dest: /tmp/fusion-free.rpm
 
-- name: Install rpmfusion nonfree
-  ansible.builtin.dnf:
-    name: https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ releasever }}.noarch.rpm
-    state: present
+- name: Download rpmfusion nonfree rpm
+  get_url:
+    url: https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ releasever }}.noarch.rpm
+    dest: /tmp/fusion-nonfree.rpm
+
+- name: Install rpmfusion free/nonfree
+  ansible.builtin.shell: dnf install /tmp/fusion-*.rpm -y
+
