@@ -49,7 +49,7 @@
     state: present
 
 - name: Swap ffmpeg
-  ansible.builtin.shell: dnf swap ffmpeg-free ffmpeg -y
+  ansible.builtin.shell: dnf swap ffmpeg-free ffmpeg --allowerasing -y
 
 - name: Install Development Tools
   dnf:
