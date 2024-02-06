@@ -1,8 +1,9 @@
-- name: Install nvim
+- name: Install nvim and Python3 pip
   dnf:
     name:
       - neovim
       - fzf
+      - python3-pip
     state: latest
 
 - name: Make tempdir for nvim config pull and install
