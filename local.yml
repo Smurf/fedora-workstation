@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   vars:
-    releasever: 38
+    releasever: 40
   module_defaults:
     ansible.builtin.dnf:
       releasever: "{{ releasever }}"
@@ -11,4 +11,3 @@
     - base-services
     - nvim
     - grub-config
-    - intel-ax-wifi-fix
