@@ -17,4 +17,5 @@
     git clone https://github.com/Smurf/nvim-config.git "{{ nvim_tmpdir }}"
     cd "{{ nvim_tmpdir }}"
     ./global-setup.sh
+  when: nvim == true
 
