@@ -57,4 +57,7 @@
       - '@development-tools'
       - rpm-build
       - nodejs
+      - neovim
+      - tmux
+      - alacritty
     state: present

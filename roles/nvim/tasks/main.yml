@@ -2,7 +2,6 @@
   dnf:
     name:
       - neovim
-      - fzf
       - python3-pip
     state: latest
 
