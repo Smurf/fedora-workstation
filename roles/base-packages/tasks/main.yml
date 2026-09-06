@@ -3,3 +3,7 @@
 
 - name: Install dnf packages
   import_tasks: dnf-install.yml
+
+- name: Install snapshot packages
+  when: snapshots is defined and snapshots
+  import_tasks: snapshots.yaml

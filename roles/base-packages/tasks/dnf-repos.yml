@@ -4,8 +4,8 @@
     description: Google Chrome repo
     baseurl: https://dl.google.com/linux/chrome/rpm/stable/x86_64
     gpgkey: https://dl.google.com/linux/linux_signing_key.pub
-    enabled: yes
-    gpgcheck: yes
+    enabled: true
+    gpgcheck: true
     state: present
 
 - name: Download rpmfusion free rpm

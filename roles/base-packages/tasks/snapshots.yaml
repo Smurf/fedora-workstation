@@ -1,0 +1,25 @@
+- name: Install rpms to support snapshots from official repos.
+  ansible.builtin.dnf5:
+    name:
+      - snapper
+      - libdnf5-plugin-actions
+    state: present
+
+- name: Configure Smurf's copr repositories for grub-btrfs and snapper dnf actions.
+  block:
+  - name: Install grub-btrfs copr repo
+    community.general.copr:
+      name: '@smurf/grub-btrfs'
+      includepkgs:
+        - 'grub-btrfs'
+  - name: Install snapper actions copr repo
+    community.general.copr:
+      name: '@smurf/dnf5-transaction-snapper-action'
+      inincludepkgs:
+        - 'dnf5-transaction-snapper-action'
+  - name: Install copr packages via dnf
+    ansible.builtin.dnf5:
+      name:
+        - grub-btrfs
+        - dnf5-transaction-snapper-action
+      state: present
