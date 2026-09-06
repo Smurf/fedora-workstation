@@ -9,14 +9,12 @@
   block:
   - name: Install grub-btrfs copr repo
     community.general.copr:
-      name: '@smurf/grub-btrfs'
-      includepkgs:
-        - 'grub-btrfs'
+      name: smurf/grub-btrfs
+      state: enabled
   - name: Install snapper actions copr repo
     community.general.copr:
-      name: '@smurf/dnf5-transaction-snapper-action'
-      inincludepkgs:
-        - 'dnf5-transaction-snapper-action'
+      name: smurf/dnf5-transaction-snapper-action
+      state: enabled
   - name: Install copr packages via dnf
     ansible.builtin.dnf5:
       name:
